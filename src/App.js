@@ -1,5 +1,7 @@
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import "./styles/style.css";
+
+import Footer from "./components/layout/footer";
 
 function App() {
   // const getSomeData = async () => {
@@ -20,6 +22,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header"></header>
+      <Footer />
     </div>
   );
 }
