@@ -1,7 +1,8 @@
 // import { useEffect } from "react";
 import "./styles/style.css";
 
-import Footer from "./components/layout/footer";
+import Footer from "./components/layout/footer/footer";
+import Navbar from "./components/layout/navbar/navbar";
 
 function App() {
   // const getSomeData = async () => {
@@ -21,7 +22,7 @@ function App() {
   // }, []);
   return (
     <div className="App">
-      <header className="App-header"></header>
+      <Navbar />
       <Footer />
     </div>
   );
