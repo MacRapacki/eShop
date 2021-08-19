@@ -7,14 +7,23 @@ import Basket from "../../../images/shopping-basket.svg";
 const Navbar = () => {
   return (
     <S.Navbar>
-      <S.Logo>eShop</S.Logo>
+      <S.Logo>
+        <S.NavigationLink to="/home">eShop</S.NavigationLink>
+      </S.Logo>
       <S.List>
-        <S.Item>Home</S.Item>
-        <S.Item>Products</S.Item>
-        <S.Item>Contact</S.Item>
         <S.Item>
-          {" "}
-          <S.BasketIcon src={Basket} alt="basket" />
+          <S.NavigationLink to="/home">Home</S.NavigationLink>
+        </S.Item>
+        <S.Item>
+          <S.NavigationLink to="/products">Products</S.NavigationLink>
+        </S.Item>
+        <S.Item>
+          <S.NavigationLink to="/contact">Contact</S.NavigationLink>
+        </S.Item>
+        <S.Item>
+          <S.NavigationLink to="/basket">
+            <S.BasketIcon src={Basket} alt="basket" />
+          </S.NavigationLink>
         </S.Item>
       </S.List>
     </S.Navbar>

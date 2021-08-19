@@ -1,11 +1,15 @@
 import React from "react";
 
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import { GlobalStyle } from "./globalStyles";
 
-import Footer from "./components/layout/footer/footer";
-import Navbar from "./components/layout/navbar/navbar";
+import Footer from "./components/layout/footer/Footer";
+import Navbar from "./components/layout/navbar/Navbar";
+import Home from "./components/pages/home/Home";
+import Products from "./components/pages/products/Products";
+import Contact from "./components/pages/contact/Contact";
+import Basket from "./components/pages/basket/Basket";
 
 function App() {
   // const getSomeData = async () => {
@@ -28,7 +32,12 @@ function App() {
       <GlobalStyle />
       <Router>
         <Navbar />
-        <Switch></Switch>
+        <Switch>
+          <Route path="/home" component={Home}></Route>
+          <Route path="/products" component={Products}></Route>
+          <Route path="/contact" component={Contact}></Route>
+          <Route path="/basket" component={Basket}></Route>
+        </Switch>
         <Footer />
       </Router>
     </>
