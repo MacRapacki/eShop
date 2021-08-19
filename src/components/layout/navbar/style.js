@@ -28,4 +28,10 @@ export const Item = styled.li`
   cursor: pointer;
   padding: 10px 20px;
   border: 1px solid black;
+  display: grid;
+  place-items: center;
+`;
+
+export const BasketIcon = styled.img`
+  width: 25px;
 `;

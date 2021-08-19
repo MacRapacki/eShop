@@ -2,6 +2,8 @@ import React from "react";
 
 import * as S from "./style";
 
+import Basket from "../../../images/shopping-basket.svg";
+
 const Navbar = () => {
   return (
     <S.Navbar>
@@ -10,7 +12,10 @@ const Navbar = () => {
         <S.Item>Home</S.Item>
         <S.Item>Products</S.Item>
         <S.Item>Contact</S.Item>
-        <S.Item>Basket</S.Item>
+        <S.Item>
+          {" "}
+          <S.BasketIcon src={Basket} alt="basket" />
+        </S.Item>
       </S.List>
     </S.Navbar>
   );
