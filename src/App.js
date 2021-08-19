@@ -1,5 +1,6 @@
-// import { useEffect } from "react";
-import "./styles/style.css";
+import React from "react";
+
+import { GlobalStyle } from "./globalStyles";
 
 import Footer from "./components/layout/footer/footer";
 import Navbar from "./components/layout/navbar/navbar";
@@ -21,10 +22,11 @@ function App() {
   //   getSomeData();
   // }, []);
   return (
-    <div className="App">
+    <>
+      <GlobalStyle />
       <Navbar />
       <Footer />
-    </div>
+    </>
   );
 }
 
