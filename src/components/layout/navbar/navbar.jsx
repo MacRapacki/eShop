@@ -8,11 +8,15 @@ const Navbar = () => {
   return (
     <S.Navbar>
       <S.Logo>
-        <S.NavigationLink to="/">eShop</S.NavigationLink>
+        <S.LogoLink to="/" exact>
+          eShop
+        </S.LogoLink>
       </S.Logo>
       <S.List>
         <S.Item>
-          <S.NavigationLink to="/">Home</S.NavigationLink>
+          <S.NavigationLink to="/" exact>
+            Home
+          </S.NavigationLink>
         </S.Item>
         <S.Item>
           <S.NavigationLink to="/products">Products</S.NavigationLink>

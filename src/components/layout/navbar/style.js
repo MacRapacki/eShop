@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 export const Navbar = styled.nav`
   width: 100%;
@@ -30,7 +30,13 @@ export const NavigationLink = styled(NavLink)`
   cursor: pointer;
   padding: 10px 20px;
   text-decoration: none;
-  /* border: 1px solid black; */
+  &.active {
+    border-bottom: 2px solid blueviolet;
+  }
+`;
+export const LogoLink = styled(Link)`
+  cursor: pointer;
+  text-decoration: none;
 `;
 
 export const Logo = styled.div`
