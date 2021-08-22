@@ -7,21 +7,53 @@ import { DataContext } from "../../../context/DataContext";
 const Home = () => {
   const { someData } = useContext(DataContext);
 
-  const [filterArray, setFilterArray] = useState("all");
+  const [filterArray, setFilterArray] = useState(someData);
+  // console.log(filterArray);
+
+  // function showWomens() {
+  //   const arr = someData.filter((item) => item.category === "women's clothing");
+  //   setFilterArray(arr);
+  // }
+
+  const handleFilter = (category) => {
+    console.log(category);
+    if (category === "men's clothing") {
+      const arr = someData.filter((item) => item.category === category);
+      return setFilterArray(arr);
+    }
+
+    if (category === "women's clothing") {
+      const arr = someData.filter((item) => item.category === category);
+      return setFilterArray(arr);
+    }
+
+    if (category === "all") {
+      return setFilterArray(someData);
+    } else {
+      const arr = someData.filter(
+        (item) =>
+          item.category !== "men's clothing" &&
+          item.category !== "women's clothing"
+      );
+      return setFilterArray(arr);
+    }
+  };
+
   console.log(filterArray);
 
-  function handleClick() {
-    const arr = someData.filter((item) => item.category === "women's clothing");
-
-    setFilterArray(arr);
-  }
   return (
     <S.Home>
       <S.ButtonsPanel>
-        <S.Button>All</S.Button>
-        <S.Button onClick={handleClick}>Women's</S.Button>
-        <S.Button>Men's</S.Button>
-        <S.Button>Accessoreis</S.Button>
+        <S.Button onClick={() => handleFilter("all")}>All</S.Button>
+        <S.Button onClick={() => handleFilter("women's clothing")}>
+          Women's
+        </S.Button>
+        <S.Button onClick={() => handleFilter("men's clothing")}>
+          Men's{" "}
+        </S.Button>
+        <S.Button onClick={() => handleFilter("accesories")}>
+          Accessoreis{" "}
+        </S.Button>
       </S.ButtonsPanel>
       <S.ProducstWrapper>
         <S.ProductFrame>
