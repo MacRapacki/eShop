@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import { GlobalStyle } from "./globalStyles";
+
+import { DataContext } from "./context/DataContext";
 
 import Footer from "./components/layout/footer/Footer";
 import Navbar from "./components/layout/navbar/Navbar";
@@ -12,34 +14,37 @@ import Contact from "./components/pages/contact/Contact";
 import Basket from "./components/pages/basket/Basket";
 
 function App() {
-  // const getSomeData = async () => {
-  //   const url = "https://fakestoreapi.com/products";
-  //   const response = await fetch(url);
-  //   if (!response.ok) {
-  //     const message = `status is: ${response.status}`;
-  //     throw new Error(message);
-  //   }
-  //   const data = await response.json();
-  //   console.log(data);
-  //   return data;
-  // };
+  const [someData, setSomeData] = useState({ name: "mako0", age: 25 });
 
-  // useEffect(() => {
-  //   getSomeData();
-  // }, []);
+  const getSomeData = async () => {
+    const url = "https://fakestoreapi.com/products";
+    const response = await fetch(url);
+    if (!response.ok) {
+      const message = `status is: ${response.status}`;
+      throw new Error(message);
+    }
+    const data = await response.json();
+    setSomeData(data);
+  };
+
+  useEffect(() => {
+    getSomeData();
+  }, []);
   return (
     <>
-      <GlobalStyle />
-      <Router>
-        <Navbar />
-        <Switch>
-          <Route path="/" exact component={Home}></Route>
-          <Route path="/products" component={Products}></Route>
-          <Route path="/contact" component={Contact}></Route>
-          <Route path="/basket" component={Basket}></Route>
-        </Switch>
-        <Footer />
-      </Router>
+      <DataContext.Provider value={{ someData }}>
+        <GlobalStyle />
+        <Router>
+          <Navbar />
+          <Switch>
+            <Route path="/" exact component={Home}></Route>
+            <Route path="/products" component={Products}></Route>
+            <Route path="/contact" component={Contact}></Route>
+            <Route path="/basket" component={Basket}></Route>
+          </Switch>
+          <Footer />
+        </Router>
+      </DataContext.Provider>
     </>
   );
 }
