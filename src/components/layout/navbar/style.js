@@ -4,6 +4,7 @@ import { NavLink, Link } from "react-router-dom";
 
 export const Navbar = styled.nav`
   width: 100%;
+  max-width: 1500px;
   height: 60px;
   background-color: white;
   display: flex;
@@ -11,6 +12,7 @@ export const Navbar = styled.nav`
   align-items: center;
   justify-content: space-between;
   padding: 0 30px;
+  margin: 0 auto;
 `;
 
 export const List = styled.ul`

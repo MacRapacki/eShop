@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
 export const Home = styled.section`
-  /* background-color: green; */
   width: 100%;
-  height: 100%;
+  min-height: calc(100vh - 60px - 50px);
   padding: 20px;
 `;
 
@@ -40,18 +39,36 @@ export const ProducstWrapper = styled.div`
 
 export const ProductFrame = styled.div`
   width: 250px;
-  height: 400px;
-  border: 2px solid black;
+  border: 2px solid lightgray;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: center;
+  padding: 15px;
+  margin-top: 25px;
+  transition: 0.2s linear;
 
-  img {
-    height: 60%;
+  &:hover {
+    border: 2px solid black;
+  }
+
+  & > * {
+    margin: 10px auto;
+  }
+  .imgWrapper {
+    width: 200px;
+    height: 200px;
+    display: grid;
+    place-items: center;
+    img {
+      max-width: 80%;
+      max-height: 200px;
+    }
   }
 
   p {
     text-align: center;
+    height: 50px;
+    margin-top: 10px;
   }
 `;
