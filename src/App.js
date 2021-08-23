@@ -14,7 +14,7 @@ import Contact from "./components/pages/contact/Contact";
 import Basket from "./components/pages/basket/Basket";
 
 function App() {
-  const [someData, setSomeData] = useState({});
+  const [someData, setSomeData] = useState([]);
 
   const getSomeData = async () => {
     const url = "https://fakestoreapi.com/products";

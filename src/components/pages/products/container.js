@@ -1,11 +1,15 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 
 import { DataContext } from "../../../context/DataContext";
 
 export const useContainer = () => {
   const { someData } = useContext(DataContext);
 
-  const [filteredArray, setFilterArray] = useState(someData);
+  const [filteredArray, setFilterArray] = useState([]);
+
+  useEffect(() => {
+    setFilterArray(someData);
+  }, [someData]);
 
   const handleFilter = (category) => {
     console.log(category);
