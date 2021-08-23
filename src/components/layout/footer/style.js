@@ -7,9 +7,6 @@ export const Footer = styled.footer`
   color: white;
   display: grid;
   place-items: center;
-  position: absolute;
-  bottom: 0;
-  left: 0;
 `;
 
 export const Paragraph = styled.p`
