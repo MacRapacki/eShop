@@ -15,6 +15,7 @@ import Basket from "./components/pages/basket/Basket";
 
 function App() {
   const [someData, setSomeData] = useState([]);
+  const [basketArray, setBasketArray] = useState([])
 
   const getSomeData = async () => {
     const url = "https://fakestoreapi.com/products";
@@ -32,7 +33,7 @@ function App() {
   }, []);
   return (
     <>
-      <DataContext.Provider value={{ someData }}>
+      <DataContext.Provider value={{ someData, basketArray, setBasketArray }}>
         <GlobalStyle />
         <Router>
           <Navbar />

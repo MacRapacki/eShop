@@ -1,4 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useContext } from "react";
+
+import { DataContext } from "../../../context/DataContext";
 
 import * as S from "./style";
 
@@ -6,7 +8,18 @@ import { useContainer } from "./container";
 
 const Products = () => {
   const { handleFilter, filteredArray } = useContainer();
+  const {setBasketArray, basketArray, someData} = useContext(DataContext)
 
+  const addToBasket =(id)=>{
+    const choosenItem = someData.filter(item=> item.id === id)
+    const arr = [...basketArray, ...choosenItem];
+    //  arr.push(choosenItem)
+    setBasketArray(arr)
+    
+
+  }
+
+console.log(basketArray)
   return (
     <S.Products>
       <S.ButtonsPanel>
@@ -32,7 +45,7 @@ const Products = () => {
 
               <p className="title">{title}</p>
               <p className="price">£{price}</p>
-              <S.Button>Add to basket</S.Button>
+              <S.Button onClick={()=>addToBasket(id)}>Add to basket</S.Button>
             </S.ProductFrame>
           );
         })}

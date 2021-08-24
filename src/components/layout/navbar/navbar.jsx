@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useContext }  from "react";
 
 import * as S from "./style";
 
-import Basket from "../../../images/shopping-basket.svg";
+import { DataContext } from "../../../context/DataContext";
+
+
+import BasketIcon from "../../../images/shopping-basket.svg";
 
 const Navbar = () => {
+
+const {basketArray} = useContext(DataContext)
+
   return (
     <S.Navbar>
       <S.Logo>
@@ -26,7 +32,8 @@ const Navbar = () => {
         </S.Item>
         <S.Item>
           <S.NavigationLink to="/basket">
-            <S.BasketIcon src={Basket} alt="basket" />
+            <S.BasketIcon src={BasketIcon} alt="basket" />{basketArray.length > 0 &&
+            <div className="basketCounter">{basketArray.length}</div>}
           </S.NavigationLink>
         </S.Item>
       </S.List>

@@ -12,7 +12,6 @@ export const useContainer = () => {
   }, [someData]);
 
   const handleFilter = (category) => {
-    console.log(category);
     if (category === "men's clothing") {
       const arr = someData.filter((item) => item.category === category);
       return setFilterArray(arr);
