@@ -27,7 +27,7 @@ export const Button = styled.button`
   }
 `;
 
-export const ProducstWrapper = styled.div`
+export const ProductsWrapper = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
@@ -45,7 +45,7 @@ export const ProductFrame = styled.div`
   justify-content: flex-start;
   align-items: center;
   padding: 15px;
-  margin-top: 25px;
+  margin-top: 15px;
   transition: 0.2s linear;
 
   &:hover {
@@ -53,7 +53,7 @@ export const ProductFrame = styled.div`
   }
 
   & > * {
-    margin: 10px auto;
+    margin: 8px auto;
   }
   .imgWrapper {
     width: 200px;
@@ -70,5 +70,9 @@ export const ProductFrame = styled.div`
     text-align: center;
     height: 50px;
     margin-top: 10px;
+  }
+
+  .price {
+    font-weight: bold;
   }
 `;

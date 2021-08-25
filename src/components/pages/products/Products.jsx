@@ -4,22 +4,18 @@ import { DataContext } from "../../../context/DataContext";
 
 import * as S from "./style";
 
-import { useContainer } from "./container";
+import { useContainer } from "./useContainer";
 
 const Products = () => {
   const { handleFilter, filteredArray } = useContainer();
-  const {setBasketArray, basketArray, someData} = useContext(DataContext)
+  const { setBasketArray, basketArray, someData } = useContext(DataContext);
 
-  const addToBasket =(id)=>{
-    const choosenItem = someData.filter(item=> item.id === id)
+  const addToBasket = (id) => {
+    const choosenItem = someData.filter((item) => item.id === id);
     const arr = [...basketArray, ...choosenItem];
-    //  arr.push(choosenItem)
-    setBasketArray(arr)
-    
+    setBasketArray(arr);
+  };
 
-  }
-
-console.log(basketArray)
   return (
     <S.Products>
       <S.ButtonsPanel>
@@ -34,7 +30,7 @@ console.log(basketArray)
           Accessoreis{" "}
         </S.Button>
       </S.ButtonsPanel>
-      <S.ProducstWrapper>
+      <S.ProductsWrapper>
         {filteredArray.map((item) => {
           const { id, title, image, price } = item;
           return (
@@ -42,14 +38,13 @@ console.log(basketArray)
               <div className="imgWrapper">
                 <img src={image} alt="product" />
               </div>
-
               <p className="title">{title}</p>
               <p className="price">£{price}</p>
-              <S.Button onClick={()=>addToBasket(id)}>Add to basket</S.Button>
+              <S.Button onClick={() => addToBasket(id)}>Add to basket</S.Button>
             </S.ProductFrame>
           );
         })}
-      </S.ProducstWrapper>
+      </S.ProductsWrapper>
     </S.Products>
   );
 };
