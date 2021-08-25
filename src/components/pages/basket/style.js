@@ -18,6 +18,7 @@ export const Home = styled.section`
     justify-content: space-around;
     align-items: center;
     margin: 5px 0;
+    padding: 10px;
 
     p {
       width: 60%;
@@ -34,6 +35,7 @@ export const Home = styled.section`
 
       img {
         height: 100%;
+        max-width: 100%;
       }
     }
   }
