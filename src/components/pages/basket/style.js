@@ -50,4 +50,8 @@ export const Home = styled.section`
     justify-content: space-around;
     align-items: center;
   }
+
+  .emptyBasketInfo {
+    margin: 50px 0 20px 0;
+  }
 `;

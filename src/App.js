@@ -15,7 +15,7 @@ import Basket from "./components/pages/basket/Basket";
 
 function App() {
   const [someData, setSomeData] = useState([]);
-  const [basketArray, setBasketArray] = useState([])
+  const [basketArray, setBasketArray] = useState([]);
 
   const getSomeData = async () => {
     const url = "https://fakestoreapi.com/products";

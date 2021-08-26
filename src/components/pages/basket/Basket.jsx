@@ -17,6 +17,9 @@ const Home = () => {
 
   return (
     <S.Home>
+      {basketArray.length === 0 && (
+        <p className="emptyBasketInfo">Your basket is empty.</p>
+      )}
       {basketArray.map((item) => {
         const { id, title, image, price } = item;
         return (
