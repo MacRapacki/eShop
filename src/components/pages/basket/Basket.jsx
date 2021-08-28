@@ -7,9 +7,9 @@ import { DataContext } from "../../../context/DataContext";
 import { useContainer } from "./useContainer";
 
 const Home = () => {
-  const { basketArray, setBasketArray, someData } = useContext(DataContext);
+  const { basketArray } = useContext(DataContext);
 
-  const { totalCost, countTotalCost } = useContainer();
+  const { totalCost, countTotalCost, removeItem } = useContainer();
 
   useEffect(() => {
     countTotalCost(basketArray);
@@ -20,7 +20,7 @@ const Home = () => {
       {basketArray.length === 0 && (
         <p className="emptyBasketInfo">Your basket is empty.</p>
       )}
-      {basketArray.map((item) => {
+      {basketArray.map((item, index) => {
         const { id, title, image, price } = item;
         return (
           <div className="item" id={id}>
@@ -29,6 +29,9 @@ const Home = () => {
             </div>
             <p className="title">{title}</p>
             <p className="price">£{price}</p>
+            <button className="removeButton" onClick={() => removeItem(index)}>
+              Remove item
+            </button>
           </div>
         );
       })}

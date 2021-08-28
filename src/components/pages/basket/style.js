@@ -19,6 +19,7 @@ export const Home = styled.section`
     align-items: center;
     margin: 5px 0;
     padding: 10px;
+    position: relative;
 
     p {
       width: 60%;
@@ -37,6 +38,14 @@ export const Home = styled.section`
         height: 100%;
         max-width: 100%;
       }
+    }
+
+    .removeButton {
+      position: absolute;
+      /* width: 30px; */
+      height: 30px;
+      right: 10px;
+      bottom: 10px;
     }
   }
 
