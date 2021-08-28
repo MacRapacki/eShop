@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+
+import { DataContext } from "../../../context/DataContext";
 
 export const useContainer = () => {
+  const { setBasketArray, basketArray } = useContext(DataContext);
   const [totalCost, setTotalCost] = useState([]);
 
   const countTotalCost = (arr) => {
@@ -11,7 +14,10 @@ export const useContainer = () => {
     return setTotalCost(price);
   };
 
-  return { totalCost, countTotalCost };
+  const removeItem = (index) => {
+    const newArr = [...basketArray];
+    newArr.splice(index, 1);
+    return setBasketArray(newArr);
+  };
+  return { totalCost, countTotalCost, removeItem };
 };
-
-// export default useContainer;
