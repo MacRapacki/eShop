@@ -39,7 +39,7 @@ const Products = () => {
         {filteredArray.map((item) => {
           const { id, title, image, price } = item;
           return (
-            <S.ProductFrame id={id}>
+            <S.ProductFrame key={id}>
               <div className="imgWrapper">
                 <img src={image} alt="product" />
               </div>

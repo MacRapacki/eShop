@@ -23,7 +23,7 @@ const Home = () => {
       {basketArray.map((item, index) => {
         const { id, title, image, price, quantity } = item;
         return (
-          <div className="item" id={id}>
+          <div className="item" key={id}>
             <div className="imgWrapper">
               <img src={image} alt="product" />
             </div>
