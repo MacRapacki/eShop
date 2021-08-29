@@ -11,7 +11,7 @@ export const useContainer = () => {
     arr.forEach((item) => {
       price += item.price * item.quantity;
     });
-    return setTotalCost(price);
+    return setTotalCost(price.toFixed(2));
   };
 
   const removeItem = (index) => {
