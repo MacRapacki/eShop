@@ -12,6 +12,11 @@ const Products = () => {
 
   const addToBasket = (id) => {
     const choosenItem = someData.filter((item) => item.id === id);
+    if (basketArray.includes(choosenItem[0])) {
+      const index = basketArray.findIndex((item) => item.id === id);
+      return (basketArray[index].quantity += 1);
+    }
+    choosenItem[0].quantity = 1;
     const arr = [...basketArray, ...choosenItem];
     setBasketArray(arr);
   };

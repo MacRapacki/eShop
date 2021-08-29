@@ -25,6 +25,10 @@ export const Home = styled.section`
       width: 60%;
       text-align: center;
 
+      .itemQuantity {
+        font-weight: bold;
+      }
+
       &.price {
         font-weight: bold;
       }
