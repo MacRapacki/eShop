@@ -21,13 +21,16 @@ const Home = () => {
         <p className="emptyBasketInfo">Your basket is empty.</p>
       )}
       {basketArray.map((item, index) => {
-        const { id, title, image, price } = item;
+        const { id, title, image, price, quantity } = item;
         return (
           <div className="item" id={id}>
             <div className="imgWrapper">
               <img src={image} alt="product" />
             </div>
-            <p className="title">{title}</p>
+            <p className="title">
+              <span className="itemQuantity">{quantity}x </span>
+              {title}
+            </p>
             <p className="price">£{price}</p>
             <button className="removeButton" onClick={() => removeItem(index)}>
               Remove item
