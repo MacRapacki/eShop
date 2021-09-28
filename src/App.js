@@ -37,12 +37,14 @@ function App() {
         <GlobalStyle />
         <Router>
           <Navbar />
-          <Switch>
-            <Route exact path="/" component={Home}></Route>
-            <Route path="/products" component={Products}></Route>
-            <Route path="/contact" component={Contact}></Route>
-            <Route path="/basket" component={Basket}></Route>
-          </Switch>
+          <main>
+            <Switch>
+              <Route exact path="/" component={Home}></Route>
+              <Route path="/products" component={Products}></Route>
+              <Route path="/contact" component={Contact}></Route>
+              <Route path="/basket" component={Basket}></Route>
+            </Switch>
+          </main>
           <Footer />
         </Router>
       </DataContext.Provider>
