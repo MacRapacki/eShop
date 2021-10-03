@@ -20,7 +20,7 @@ function App() {
   const [basketArray, setBasketArray] = useState([]);
   const dispatch = useDispatch();
 
-  const test = useSelector((state) => state.shopProducts.products);
+  const allProducts = useSelector((state) => state.shopProducts.products);
 
   // const getSomeData = async () => {
   //   const url = "https://fakestoreapi.com/products";
@@ -51,9 +51,6 @@ function App() {
         <Router>
           <Navbar />
           <main>
-            {test.map((item, index) => {
-              return <p key={index}>{item}</p>;
-            })}
             <Switch>
               <Route exact path="/" component={Home}></Route>
               <Route path="/products" component={Products}></Route>
