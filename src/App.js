@@ -12,15 +12,13 @@ import Home from "./components/pages/home/Home";
 import Products from "./components/pages/products/Products";
 // import Contact from "./components/pages/contact/Contact";
 import Basket from "./components/pages/basket/Basket";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getProducts } from "./redux/allProductsSlice";
 
 function App() {
   const [someData, setSomeData] = useState([]);
   const [basketArray, setBasketArray] = useState([]);
   const dispatch = useDispatch();
-
-  const allProducts = useSelector((state) => state.shopProducts.products);
 
   // const getSomeData = async () => {
   //   const url = "https://fakestoreapi.com/products";

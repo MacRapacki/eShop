@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import { DataContext } from "../../../context/DataContext";
 
@@ -8,17 +9,21 @@ import { useContainer } from "./useContainer";
 
 const Products = () => {
   const { handleFilter, filteredArray } = useContainer();
-  const { setBasketArray, basketArray, someData } = useContext(DataContext);
+  // const { setBasketArray, basketArray, someData } = useContext(DataContext);
+  const dispatch = useDispatch();
+
+  const allProducts = useSelector((state) => state.shopProducts.products);
+  const itemsInBasket = useSelector((state) => state.basket.itemsInBasket);
 
   const addToBasket = (id) => {
-    const choosenItem = someData.filter((item) => item.id === id);
-    if (basketArray.includes(choosenItem[0])) {
-      const index = basketArray.findIndex((item) => item.id === id);
-      return (basketArray[index].quantity += 1);
+    const choosenItem = allProducts.filter((item) => item.id === id);
+    if (itemsInBasket.includes(choosenItem[0])) {
+      const index = itemsInBasket.findIndex((item) => item.id === id);
+      return (itemsInBasket[index].quantity += 1);
     }
     choosenItem[0].quantity = 1;
-    const arr = [...basketArray, ...choosenItem];
-    setBasketArray(arr);
+    const arr = [...itemsInBasket, ...choosenItem];
+    // setBasketArray(arr);
   };
 
   return (
