@@ -1,13 +1,13 @@
-import React, { useContext } from "react";
+import React from "react";
 
 import * as S from "./style";
 
-import { DataContext } from "../../../context/DataContext";
+import { useSelector } from "react-redux";
 
 import BasketIcon from "../../../images/shopping-basket.svg";
 
 const Navbar = () => {
-  const { basketArray } = useContext(DataContext);
+  const basket = useSelector((state) => state.basket.itemsInBasket);
 
   return (
     <S.Navbar>
@@ -31,8 +31,8 @@ const Navbar = () => {
         <S.Item>
           <S.NavigationLink to="/basket">
             <S.BasketIcon src={BasketIcon} alt="basket" />
-            {basketArray.length > 0 && (
-              <div className="basketCounter">{basketArray.length}</div>
+            {basket.length > 0 && (
+              <div className="basketCounter">{basket.length}</div>
             )}
           </S.NavigationLink>
         </S.Item>

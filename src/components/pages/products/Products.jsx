@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
-
-import { DataContext } from "../../../context/DataContext";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addItem } from "../../../redux/basketSlice";
 
 import * as S from "./style";
 
@@ -8,17 +8,15 @@ import { useContainer } from "./useContainer";
 
 const Products = () => {
   const { handleFilter, filteredArray } = useContainer();
-  const { setBasketArray, basketArray, someData } = useContext(DataContext);
+  const dispatch = useDispatch();
+
+  const allProducts = useSelector((state) => state.shopProducts.products);
+  const status = useSelector((state) => state.shopProducts.status);
 
   const addToBasket = (id) => {
-    const choosenItem = someData.filter((item) => item.id === id);
-    if (basketArray.includes(choosenItem[0])) {
-      const index = basketArray.findIndex((item) => item.id === id);
-      return (basketArray[index].quantity += 1);
-    }
-    choosenItem[0].quantity = 1;
-    const arr = [...basketArray, ...choosenItem];
-    setBasketArray(arr);
+    const choosenItem = allProducts.filter((item) => item.id === id);
+    console.log(choosenItem[0]);
+    dispatch(addItem(choosenItem[0]));
   };
 
   return (
@@ -36,19 +34,25 @@ const Products = () => {
         </S.Button>
       </S.ButtonsPanel>
       <S.ProductsWrapper>
-        {filteredArray.map((item) => {
-          const { id, title, image, price } = item;
-          return (
-            <S.ProductFrame key={id}>
-              <div className="imgWrapper">
-                <img src={image} alt="product" />
-              </div>
-              <p className="title">{title}</p>
-              <p className="price">£{price}</p>
-              <S.Button onClick={() => addToBasket(id)}>Add to basket</S.Button>
-            </S.ProductFrame>
-          );
-        })}
+        {(status === null) | "loading" ? (
+          <p>loading...</p>
+        ) : (
+          filteredArray.map((item) => {
+            const { id, title, image, price } = item;
+            return (
+              <S.ProductFrame key={id}>
+                <div className="imgWrapper">
+                  <img src={image} alt="product" />
+                </div>
+                <p className="title">{title}</p>
+                <p className="price">£{price}</p>
+                <S.Button onClick={() => addToBasket(id)}>
+                  Add to basket
+                </S.Button>
+              </S.ProductFrame>
+            );
+          })
+        )}
       </S.ProductsWrapper>
     </S.Products>
   );
