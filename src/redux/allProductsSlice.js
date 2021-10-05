@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const initialState = {
-  products: ["test", "test2"],
+  products: [],
   status: null,
 };
 
