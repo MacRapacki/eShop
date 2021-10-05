@@ -1,28 +1,37 @@
-import React, { useContext, useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import { DataContext } from "../../../context/DataContext";
+import { removeItem } from "../../../redux/basketSlice";
 
 export const useContainer = () => {
-  const { setBasketArray, basketArray } = useContext(DataContext);
+  const itemsInBasket = useSelector((state) => state.basket.itemsInBasket);
+  const dispatch = useDispatch();
+
   const [totalCost, setTotalCost] = useState([]);
 
-  const countTotalCost = (arr) => {
+  const countTotalCost = () => {
     let price = 0;
-    arr.forEach((item) => {
+    itemsInBasket.forEach((item) => {
       price += item.price * item.quantity;
     });
     return setTotalCost(price.toFixed(2));
   };
 
-  const removeItem = (index) => {
-    const newArr = [...basketArray];
+  const numberOfItemsInBasket = itemsInBasket.length;
 
-    if (newArr[index].quantity === 1) {
-      newArr.splice(index, 1);
-      return setBasketArray(newArr);
-    }
-    newArr[index].quantity -= 1;
-    return setBasketArray(newArr);
+  const removeHandler = (index) => {
+    dispatch(removeItem(index));
   };
-  return { totalCost, countTotalCost, removeItem };
+
+  useEffect(() => {
+    countTotalCost();
+  }, [itemsInBasket]);
+
+  return {
+    totalCost,
+    countTotalCost,
+    removeHandler,
+    numberOfItemsInBasket,
+    itemsInBasket,
+  };
 };
