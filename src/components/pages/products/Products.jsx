@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "../../../redux/basketSlice";
 
@@ -11,14 +11,18 @@ const Products = () => {
 
   const dispatch = useDispatch();
 
-  const allProducts = useSelector((state) => state.shopProducts.products);
-  const status = useSelector((state) => state.shopProducts.status);
+  const allProducts = useSelector((state) => state?.shopProducts?.products);
+  const status = useSelector((state) => state?.shopProducts?.status);
 
   const addToBasket = (id) => {
     const choosenItem = allProducts.filter((item) => item.id === id);
     console.log(choosenItem[0]);
     dispatch(addItem(choosenItem[0]));
   };
+
+  useEffect(() => {
+    console.log("KAPPA");
+  }, [allProducts]);
 
   return (
     <S.Products>
@@ -38,7 +42,7 @@ const Products = () => {
         {status !== "success" ? (
           <p>loading...</p>
         ) : (
-          filteredArray.map((item) => {
+          filteredArray?.map((item) => {
             const { id, title, image, price } = item;
             return (
               <S.ProductFrame key={id}>
