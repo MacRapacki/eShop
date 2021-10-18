@@ -1,17 +1,10 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 
-// import { DataContext } from "../../../context/DataContext";
-
 export const useContainer = () => {
-  // const { someData } = useContext(DataContext);
   const allProducts = useSelector((state) => state.shopProducts.products);
 
   const [filteredArray, setFilterArray] = useState(allProducts);
-
-  // useEffect(() => {
-  //   setFilterArray(someData);
-  // }, [someData]);
 
   const handleFilter = (category) => {
     if (category === "men's clothing") {

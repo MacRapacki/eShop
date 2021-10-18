@@ -8,6 +8,7 @@ import { useContainer } from "./useContainer";
 
 const Products = () => {
   const { handleFilter, filteredArray } = useContainer();
+
   const dispatch = useDispatch();
 
   const allProducts = useSelector((state) => state.shopProducts.products);
@@ -34,7 +35,7 @@ const Products = () => {
         </S.Button>
       </S.ButtonsPanel>
       <S.ProductsWrapper>
-        {(status === null) | "loading" ? (
+        {status !== "success" ? (
           <p>loading...</p>
         ) : (
           filteredArray.map((item) => {
