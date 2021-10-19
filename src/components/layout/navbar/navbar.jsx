@@ -12,15 +12,11 @@ const Navbar = () => {
   return (
     <S.Navbar>
       <S.Logo>
-        <S.LogoLink to="/" exact>
-          eShop
-        </S.LogoLink>
+        <S.LogoLink to="/eShop">eShop</S.LogoLink>
       </S.Logo>
       <S.List>
         <S.Item>
-          <S.NavigationLink to="/" exact>
-            Home
-          </S.NavigationLink>
+          <S.NavigationLink to="/eShop">Home</S.NavigationLink>
         </S.Item>
         <S.Item>
           <S.NavigationLink to="/products">Products</S.NavigationLink>
