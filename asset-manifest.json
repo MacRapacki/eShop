@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.js": "/eShop/static/js/main.e9b158c2.chunk.js",
+    "main.js.map": "/eShop/static/js/main.e9b158c2.chunk.js.map",
+    "runtime-main.js": "/eShop/static/js/runtime-main.7237fc71.js",
+    "runtime-main.js.map": "/eShop/static/js/runtime-main.7237fc71.js.map",
+    "static/js/2.f45bffbe.chunk.js": "/eShop/static/js/2.f45bffbe.chunk.js",
+    "static/js/2.f45bffbe.chunk.js.map": "/eShop/static/js/2.f45bffbe.chunk.js.map",
+    "static/js/3.d1ebe816.chunk.js": "/eShop/static/js/3.d1ebe816.chunk.js",
+    "static/js/3.d1ebe816.chunk.js.map": "/eShop/static/js/3.d1ebe816.chunk.js.map",
+    "index.html": "/eShop/index.html",
+    "static/js/2.f45bffbe.chunk.js.LICENSE.txt": "/eShop/static/js/2.f45bffbe.chunk.js.LICENSE.txt",
+    "static/media/homebg.0bf8b4f4.jpg": "/eShop/static/media/homebg.0bf8b4f4.jpg",
+    "static/media/shopping-basket.a534240c.svg": "/eShop/static/media/shopping-basket.a534240c.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7237fc71.js",
+    "static/js/2.f45bffbe.chunk.js",
+    "static/js/main.e9b158c2.chunk.js"
+  ]
+}
