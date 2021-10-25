@@ -58,6 +58,7 @@ export const Home = styled.section`
     padding: 20px 10px;
     margin: 10px 0 0 0;
     border: 2px solid black;
+    border-radius: 8px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;

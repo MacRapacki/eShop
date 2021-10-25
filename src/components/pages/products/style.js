@@ -21,9 +21,12 @@ export const Button = styled.button`
   margin: 5px 20px;
   cursor: pointer;
   border: none;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  transition: 0.2s linear;
 
   &:hover {
-    border-bottom: 2px solid black;
+    border: 2px solid black;
   }
 `;
 
@@ -47,6 +50,7 @@ export const ProductFrame = styled.div`
   padding: 15px;
   margin-top: 15px;
   transition: 0.2s linear;
+  border-radius: 8px;
 
   &:hover {
     border: 2px solid black;

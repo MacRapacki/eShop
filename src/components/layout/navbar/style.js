@@ -29,22 +29,22 @@ export const Item = styled.li`
 `;
 
 export const NavigationLink = styled(NavLink)`
-position: relative;
+  position: relative;
   cursor: pointer;
   padding: 10px 20px;
   text-decoration: none;
   &.active {
-    border-bottom: 2px solid blueviolet;
+    border-bottom: 2px solid black;
   }
 
-  .basketCounter{
+  .basketCounter {
     position: absolute;
     top: 55%;
     right: 20%;
     background-color: black;
     display: grid;
     place-items: center;
-    width:  18px;
+    width: 18px;
     height: 18px;
     border-radius: 50%;
     color: white;
