@@ -38,6 +38,7 @@ const Home = () => {
         <p className="itemsAmount">Number of Items: {numberOfItemsInBasket}</p>
         <p className="totalCost">Total cost: {totalCost}</p>
       </div>
+      <S.checkoutBtn disabled={!numberOfItemsInBasket}>CHECKOUT</S.checkoutBtn>
     </S.Home>
   );
 };

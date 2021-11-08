@@ -46,7 +46,6 @@ export const Home = styled.section`
 
     .removeButton {
       position: absolute;
-      /* width: 30px; */
       height: 30px;
       right: 10px;
       bottom: 10px;
@@ -67,5 +66,24 @@ export const Home = styled.section`
 
   .emptyBasketInfo {
     margin: 50px 0 20px 0;
+  }
+`;
+
+export const checkoutBtn = styled.button`
+  width: 150px;
+  height: 70px;
+  background-color: lightblue;
+  margin-top: 25px;
+  border-radius: 8px;
+  cursor: pointer;
+
+  &:hover {
+    border: 2px solid black;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: auto;
+    border: none;
   }
 `;
