@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -14,13 +14,26 @@ import Basket from "./components/pages/basket/Basket";
 import { useDispatch } from "react-redux";
 import { getProducts } from "./redux/allProductsSlice";
 
+import { db } from "./firebase-config";
+import { collection, getDocs } from "@firebase/firestore";
+
 function App() {
+  const [users, setUsers] = useState([]);
+
   const dispatch = useDispatch();
+
+  const usersCollectionRef = collection(db, "users");
+
+  const getUsers = async () => {
+    const data = await getDocs(usersCollectionRef);
+    setUsers(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+  };
 
   useEffect(() => {
     dispatch(getProducts());
+    getUsers();
   }, []);
-
+  console.log(users);
   return (
     <>
       {/* <DataContext.Provider value={{ someData, basketArray, setBasketArray }}> */}
